@@ -9,11 +9,10 @@ public class DbConnection {
         Connection connection = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://sql11.freesqldatabase.com:3306/sql11432869", "sql11432869", "NWwFM5kbJx");
+            connection = DriverManager.getConnection("jdbc:mysql://sql11.freesqldatabase.com:3306/sql11432869", "user", "password");
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return connection;
-
     }
 }
