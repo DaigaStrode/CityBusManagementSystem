@@ -59,7 +59,7 @@ public class RouteController {
             Routes route = new Routes();
 
             System.out.println("The routes are: ");
-            System.out.println("id \t route_number \t route_name");
+            System.out.printf("%-5s %-10s %-10s\n", "id", "route_number", "route_name");
 
             while (rs.next()){
                 routeId = rs.getInt("ID");
@@ -68,7 +68,7 @@ public class RouteController {
                 route.setId(routeId);
                 route.setRoute_number(route_number);
                 route.setRoute_name(route_name);
-                System.out.println(routeId + "\t" + route_number + "\t" +route_name);
+                System.out.printf("%-5s %-10s %-10s\n", routeId, route_number, route_name);
             }
             System.out.println();
             Menu.menuAdmin();

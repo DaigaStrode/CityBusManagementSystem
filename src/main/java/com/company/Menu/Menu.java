@@ -190,8 +190,8 @@ public class Menu {
     public static void menuDriver() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nWhat would you like to do? ");
-        System.out.println("1. See drivers list \t 2. Add new driver");
-        System.out.println("3. Assign bus to driver \t 4. Assign route to driver");
+        System.out.printf("%-30s %-30s\n", "1. See drivers list", "2. Add new driver");
+        System.out.printf("%-30s %-30s\n", "3. Assign bus to driver", "4. Assign route to driver");
 
         System.out.print("Select an option: ");
         int option = scanner.nextInt();

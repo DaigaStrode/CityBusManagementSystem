@@ -58,7 +58,8 @@ public class BusController {
             Busses bus = new Busses();
 
             System.out.println("The busses are: ");
-            System.out.println("id \t VIN_number \t status");
+            System.out.printf("%-5s %-10s %-10s\n", "id", "VIN_number", "status");
+
 
             while (rs.next()){
                 busId = rs.getInt("ID");
@@ -67,7 +68,7 @@ public class BusController {
                 bus.setId(busId);
                 bus.setVIN_number(vin_number);
                 bus.setStatus(status);
-                System.out.println(busId + "\t" + vin_number + "\t" +status);
+                System.out.printf("%-5s %-10s %-10s\n", busId, vin_number, status);
             }
             System.out.println();
             Menu.menuAdmin();

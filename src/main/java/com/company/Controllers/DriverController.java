@@ -62,7 +62,7 @@ public class DriverController {
             Drivers driver = new Drivers();
 
             System.out.println("The drivers are: ");
-            System.out.println("id \t name \t surname \t status \t assigned_bus \t assigned_route");
+            System.out.printf("%-5s %-10s %-10s %-10s %-15s %-15s\n", "id", "name", "surname", "status", "assigned_bus", "assigned_route");
 
             while (rs.next()){
                 driverId = rs.getInt("driver_ID");
@@ -79,7 +79,7 @@ public class DriverController {
                 driver.setAssigned_bus(assigned_bus);
                 driver.setAssigned_route(assigned_route);
 
-                System.out.println(driverId + "\t" + name + "\t" + surname + "\t" + status + "\t" + assigned_bus + "\t" + assigned_route);
+                System.out.printf("%-5s %-10s %-10s %-10s %-15s %-15s\n", driverId, name, surname, status, assigned_bus, assigned_route);
             }
             System.out.println();
             Menu.menuAdmin();
@@ -93,7 +93,8 @@ public class DriverController {
 
     public static void assignBusToDriver() {
         System.out.println("Available drivers are: ");
-        System.out.println("id \t name \t surname");
+        System.out.printf("%-5s %-10s %-10s\n", "id", "name", "surname");
+
 
         try {
             ps = DbConnection.getConnection().prepareStatement("SELECT * FROM drivers WHERE status='free'");
@@ -111,7 +112,8 @@ public class DriverController {
                 driver.setId(id);
                 driver.setName(name);
                 driver.setSurname(surname);
-                System.out.println(id + "\t" + name + "\t" + surname);
+                System.out.printf("%-5s %-10s %-10s\n", id, name, surname);
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -121,7 +123,8 @@ public class DriverController {
         int driver_id = scanner.nextInt();
 
         System.out.println("Available busses are: ");
-        System.out.println("id \t VIN_number");
+        System.out.printf("%-10s\n", "VIN_number");
+
 
         try {
             ps = DbConnection.getConnection().prepareStatement("SELECT * FROM busses WHERE status='free'");
@@ -134,7 +137,7 @@ public class DriverController {
             while (rs.next()) {
                 number = rs.getInt("VIN_number");
                 bus.setVIN_number(number);
-                System.out.println(number);
+                System.out.printf("%-10s\n", number);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -167,7 +170,7 @@ public class DriverController {
 
     public static void assignRouteToDriver() {
         System.out.println("Available drivers are: ");
-        System.out.println("id \t name \t surname");
+        System.out.printf("%-5s %-10s %-10s\n", "id", "name", "surname");
 
         try {
             ps = DbConnection.getConnection().prepareStatement("SELECT * FROM drivers WHERE status='free'");
@@ -185,7 +188,7 @@ public class DriverController {
                 driver.setId(id);
                 driver.setName(name);
                 driver.setSurname(surname);
-                System.out.println(id + "\t" + name + "\t" + surname);
+                System.out.printf("%-5s %-10s %-10s\n", id, name, surname);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -195,7 +198,7 @@ public class DriverController {
         int driver_id = scanner.nextInt();
 
         System.out.println("The routes are: ");
-        System.out.println("route_number \t route_name");
+        System.out.printf("%-10s %-10s\n", "route_number", "route_name");
 
         try {
             ps = DbConnection.getConnection().prepareStatement("SELECT * FROM routes");
@@ -211,7 +214,7 @@ public class DriverController {
                 route_name = rs.getString("route_name");
                 route.setRoute_number(route_number);
                 route.setRoute_name(route_name);
-                System.out.println(route_number + "\t" +route_name);
+                System.out.printf("%-10s %-10s\n", route_number, route_name);
             }
         } catch (SQLException e) {
             e.printStackTrace();
